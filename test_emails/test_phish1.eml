@@ -1,0 +1,28 @@
+From: "Security Alert" <no-reply@account-update.com>
+To: Milka <milka@example.com>
+Subject: Urgent: Verify Your Account Immediately
+Date: Fri, 17 Jul 2026 11:07:00 -0700
+Message-ID: <testphish-001@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset="UTF-8"
+
+<html>
+<body>
+<p>Dear user,</p>
+
+<p>We detected unusual activity on your account and require immediate verification to avoid suspension.</p>
+
+<p>Please click the secure verification link below:</p>
+
+<p>
+<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+Verify Your Account
+</a>
+</p>
+
+<p>If you do not verify within 24 hours, your access may be restricted.</p>
+
+<p>Thank you,<br>
+Account Security Team</p>
+</body>
+</html>
