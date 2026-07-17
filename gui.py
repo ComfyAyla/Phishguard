@@ -1,5 +1,5 @@
-# gui.py
 import os
+import re
 import tkinter as tk
 from tkinter import filedialog, messagebox, ttk
 
@@ -8,8 +8,9 @@ from parser import read_email_file, parse_email
 from detectors.keywords import scan_keywords
 from detectors.urls import scan_urls
 from detectors.sender import scan_sender
-from detectors.attachments import scan_attachments  # <-- New Attachment Detector
-from detectors.headers import scan_headers          # <-- New Header Detector
+from detectors.attachments import scan_attachments
+from detectors.headers import scan_headers
+from detectors.whitelist import is_sender_whitelisted  # <-- New Import
 from scoring import calculate_risk
 from report import generate_text_report, save_report_to_file
 
@@ -18,8 +19,8 @@ class PhishGuardGUI:
     def __init__(self, root):
         self.root = root
         self.root.title("PhishGuard - Interactive Email Threat Analyzer")
-        self.root.geometry("900x750")  # Slightly wider/taller to accommodate attachments
-        self.root.configure(bg="#1e1e2e")  # Dark theme background
+        self.root.geometry("900x750")
+        self.root.configure(bg="#1e1e2e")
 
         # Track state
         self.current_file_path = None
@@ -34,20 +35,16 @@ class PhishGuardGUI:
         self.style = ttk.Style()
         self.style.theme_use("clam")
         
-        # Configure styles to match the dark theme
         self.style.configure("TFrame", background="#1e1e2e")
         self.style.configure("Card.TFrame", background="#252538", borderwidth=1, relief="solid")
         self.style.configure("TLabel", background="#1e1e2e", foreground="#cdd6f4", font=("Segoe UI", 10))
         self.style.configure("Header.TLabel", background="#1e1e2e", foreground="#f5c2e7", font=("Segoe UI", 14, "bold"))
         self.style.configure("Sub.TLabel", background="#252538", foreground="#bac2de", font=("Segoe UI", 10, "bold"))
         self.style.configure("Body.TLabel", background="#252538", foreground="#cdd6f4", font=("Segoe UI", 10))
-        
-        # Action Buttons
         self.style.configure("Action.TButton", font=("Segoe UI", 10, "bold"), padding=6)
 
     def build_ui(self):
         """Builds the window structure layout."""
-        # --- Top Header & File Browser ---
         top_frame = ttk.Frame(self.root, padding=15)
         top_frame.pack(fill="x")
 
@@ -62,15 +59,13 @@ class PhishGuardGUI:
         )
         self.browse_btn.pack(side="right")
 
-        # --- Main Layout (Two-Column Pane) ---
         main_pane = ttk.Frame(self.root, padding=10)
         main_pane.pack(fill="both", expand=True)
 
-        # Left Column (Email Details, Attachments & Links)
         left_col = ttk.Frame(main_pane)
         left_col.pack(side="left", fill="both", expand=True, padx=5)
 
-        # Left Card 1: Email Metadata
+        # Email Metadata Card
         meta_card = ttk.Frame(left_col, style="Card.TFrame", padding=12)
         meta_card.pack(fill="x", pady=5)
         
@@ -82,7 +77,7 @@ class PhishGuardGUI:
         self.subject_lbl = ttk.Label(meta_card, text="Subject: --", style="Body.TLabel")
         self.subject_lbl.pack(anchor="w")
 
-        # Left Card 2: Extracted Attachments (NEW)
+        # Attachments Card
         attachments_card = ttk.Frame(left_col, style="Card.TFrame", padding=12)
         attachments_card.pack(fill="x", pady=5)
         
@@ -91,7 +86,7 @@ class PhishGuardGUI:
         self.attachments_text.pack(fill="x", expand=True)
         self.attachments_text.insert(tk.END, "No attachments detected.")
 
-        # Left Card 3: Extracted Links
+        # Extracted Links Card
         links_card = ttk.Frame(left_col, style="Card.TFrame", padding=12)
         links_card.pack(fill="both", expand=True, pady=5)
         
@@ -99,11 +94,10 @@ class PhishGuardGUI:
         self.links_text = tk.Text(links_card, bg="#181825", fg="#a6e3a1", insertbackground="white", font=("Consolas", 10), height=6, relief="flat")
         self.links_text.pack(fill="both", expand=True)
 
-        # Right Column (Risk Analysis Results)
         right_col = ttk.Frame(main_pane)
         right_col.pack(side="right", fill="both", expand=True, padx=5)
 
-        # Right Card 1: Score Widget
+        # Score Widget Card
         score_card = ttk.Frame(right_col, style="Card.TFrame", padding=12)
         score_card.pack(fill="x", pady=5)
         
@@ -111,7 +105,7 @@ class PhishGuardGUI:
         self.score_val_lbl = tk.Label(score_card, text="SCORE: 00 - UNDETERMINED", bg="#252538", fg="#fab387", font=("Segoe UI", 14, "bold"))
         self.score_val_lbl.pack(fill="x", pady=5)
 
-        # Right Card 2: Triggered Indicators List
+        # Triggered Indicators List Card
         indicators_card = ttk.Frame(right_col, style="Card.TFrame", padding=12)
         indicators_card.pack(fill="both", expand=True, pady=5)
         
@@ -119,11 +113,10 @@ class PhishGuardGUI:
         self.indicators_text = tk.Text(indicators_card, bg="#181825", fg="#f38ba8", insertbackground="white", font=("Consolas", 10), height=12, relief="flat")
         self.indicators_text.pack(fill="both", expand=True)
 
-        # --- Interactive Action Footer ---
+        # Footer Actions
         footer_frame = ttk.Frame(self.root, padding=15)
         footer_frame.pack(fill="x")
 
-        # Prompt label
         prompt_lbl = ttk.Label(footer_frame, text="Would you like to Delete this email and block the sender?", font=("Segoe UI", 11, "bold"))
         prompt_lbl.pack(side="top", anchor="center", pady=(0, 10))
 
@@ -142,7 +135,6 @@ class PhishGuardGUI:
         self.btn_save_report = tk.Button(btn_row, text="💾 SAVE REPORT", bg="#fab387", fg="#11111b", font=("Segoe UI", 10, "bold"), relief="flat", padx=10, pady=5, command=self.save_report_dialog)
         self.btn_save_report.pack(side="left", padx=10)
 
-    # --- Processing Functions ---
     def browse_file(self):
         """Open a file dialog to locate an email file."""
         file_path = filedialog.askopenfilename(
@@ -156,20 +148,23 @@ class PhishGuardGUI:
     def analyze_email(self):
         """Drives the backend pipeline and displays results in the GUI."""
         try:
-            # 1. Read & Parse
             raw_text = read_email_file(self.current_file_path)
             self.parsed_email = parse_email(raw_text)
 
-            # 2. Run All Active Detectors (including new modules!)
+            # 1. Check if Whitelisted First
+            whitelisted = is_sender_whitelisted(self.parsed_email)
+
+            # 2. Run All Active Detectors
             indicators = []
-            indicators.extend(scan_keywords(self.parsed_email))
-            indicators.extend(scan_urls(self.parsed_email))
-            indicators.extend(scan_sender(self.parsed_email))
-            indicators.extend(scan_attachments(self.parsed_email))  # <-- Added
-            indicators.extend(scan_headers(self.parsed_email))      # <-- Added
+            if not whitelisted:
+                indicators.extend(scan_keywords(self.parsed_email))
+                indicators.extend(scan_urls(self.parsed_email))
+                indicators.extend(scan_sender(self.parsed_email))
+                indicators.extend(scan_attachments(self.parsed_email))
+                indicators.extend(scan_headers(self.parsed_email))
 
             # 3. Calculate score
-            self.risk_result = calculate_risk(indicators)
+            self.risk_result = calculate_risk(indicators, whitelisted=whitelisted)
 
             # 4. Populate GUI elements
             self.update_gui_displays()
@@ -178,12 +173,11 @@ class PhishGuardGUI:
 
     def update_gui_displays(self):
         """Updates UI labels and text boxes with parsed analysis details."""
-        # Header Info
         self.sender_lbl.config(text=f"Sender: {self.parsed_email.sender}")
         self.reply_lbl.config(text=f"Reply-To: {self.parsed_email.headers.get('Reply-To', 'None')}")
         self.subject_lbl.config(text=f"Subject: {self.parsed_email.subject}")
 
-        # Attachments Display (NEW)
+        # Attachments Display
         self.attachments_text.delete("1.0", tk.END)
         if self.parsed_email.attachments:
             for attachment in self.parsed_email.attachments:
@@ -202,11 +196,11 @@ class PhishGuardGUI:
         # Risk Score Widget coloring & text
         score_text = f"SCORE: {self.risk_result.score} - {self.risk_result.level}"
         if self.risk_result.level == "HIGH":
-            self.score_val_lbl.config(text=score_text, fg="#f38ba8")  # Vibrant Red
+            self.score_val_lbl.config(text=score_text, fg="#f38ba8")
         elif self.risk_result.level == "MEDIUM":
-            self.score_val_lbl.config(text=score_text, fg="#fab387")  # Warm Amber
+            self.score_val_lbl.config(text=score_text, fg="#fab387")
         else:
-            self.score_val_lbl.config(text=score_text, fg="#a6e3a1")  # Clean Green
+            self.score_val_lbl.config(text=score_text, fg="#a6e3a1")
 
         # Indicators List
         self.indicators_text.delete("1.0", tk.END)
@@ -217,22 +211,107 @@ class PhishGuardGUI:
         else:
             self.indicators_text.insert(tk.END, "No suspicious technical markers triggered.")
 
-    # --- Interactive Button Actions ---
+    def reset_display(self):
+        """Resets the UI back to empty state."""
+        self.current_file_path = None
+        self.parsed_email = None
+        self.risk_result = None
+        
+        self.sender_lbl.config(text="Sender: --")
+        self.reply_lbl.config(text="Reply-To: --")
+        self.subject_lbl.config(text="Subject: --")
+        
+        self.attachments_text.delete("1.0", tk.END)
+        self.attachments_text.insert(tk.END, "No attachments detected.")
+        
+        self.links_text.delete("1.0", tk.END)
+        self.links_text.insert(tk.END, "No links found inside the message.")
+        
+        self.score_val_lbl.config(text="SCORE: 00 - UNDETERMINED", fg="#fab387")
+        
+        self.indicators_text.delete("1.0", tk.END)
+        self.indicators_text.insert(tk.END, "No suspicious technical markers triggered.")
+
+    # --- Interactive Button Actions (Fully Functional!) ---
     def action_delete(self):
-        if not self.parsed_email:
-            messagebox.showwarning("No Email", "Please load an email first!")
+        if not self.parsed_email or not self.current_file_path:
+            messagebox.showwarning("No Email", "Please load an email file first!")
             return
-        messagebox.showinfo("Action Executed", f"Email has been safely quarantined/deleted.\nSender '{self.parsed_email.sender}' has been added to your local firewall blocklist!")
+            
+        confirm = messagebox.askyesno(
+            "Confirm Delete & Block", 
+            "Are you sure you want to PERMANENTLY delete this email file and black-list the sender's domain?"
+        )
+        if confirm:
+            try:
+                # 1. Block the sender's domain (add to blacklist.txt)
+                email_match = re.search(r'[\w\.-]+@([\w\.-]+\.\w+)', self.parsed_email.sender)
+                if email_match:
+                    domain = email_match.group(1).lower()
+                    
+                    # Read current blacklist to prevent duplicates
+                    existing = []
+                    if os.path.exists("blacklist.txt"):
+                        with open("blacklist.txt", "r", encoding="utf-8") as f:
+                            existing = [line.strip().lower() for line in f]
+                            
+                    if domain not in existing:
+                        with open("blacklist.txt", "a", encoding="utf-8") as f:
+                            f.write(f"\n{domain}")
+                
+                # 2. Physically Delete the raw file from disk
+                if os.path.exists(self.current_file_path):
+                    os.remove(self.current_file_path)
+                    
+                messagebox.showinfo(
+                    "Action Executed", 
+                    f"File '{os.path.basename(self.current_file_path)}' has been physically deleted!\n"
+                    f"Sender domain '{domain}' has been added to 'blacklist.txt'."
+                )
+                
+                # Reset display to clear deleted data
+                self.reset_display()
+                
+            except Exception as e:
+                messagebox.showerror("Error", f"Could not complete action:\n{str(e)}")
 
     def action_keep(self):
         if not self.parsed_email:
             return
-        messagebox.showinfo("Action Cancelled", "No changes made. Email remains in the inbox.")
+        # Safe reset clears current window data without hurting the source file
+        self.reset_display()
+        messagebox.showinfo("Cleared", "Active preview cleared. File remains safely stored in your system.")
 
     def action_whitelist(self):
         if not self.parsed_email:
+            messagebox.showwarning("No Email", "Please load an email file first!")
             return
-        messagebox.showinfo("White-listed", f"Sender '{self.parsed_email.sender}' is now safe. Future checks from this address will pass cleanly.")
+            
+        email_match = re.search(r'[\w\.-]+@([\w\.-]+\.\w+)', self.parsed_email.sender)
+        if email_match:
+            domain = email_match.group(1).lower()
+            try:
+                # Read current whitelist to prevent duplicates
+                existing = []
+                if os.path.exists("whitelist.txt"):
+                    with open("whitelist.txt", "r", encoding="utf-8") as f:
+                        existing = [line.strip().lower() for line in f]
+                        
+                if domain not in existing:
+                    with open("whitelist.txt", "a", encoding="utf-8") as f:
+                        f.write(f"\n{domain}")
+                
+                messagebox.showinfo(
+                    "Sender Whitelisted", 
+                    f"Domain '{domain}' is now whitelisted!\n"
+                    "Future scans on emails from this sender will register as safe (LOW Risk)."
+                )
+                
+                # Re-run analysis immediately to update GUI to safe state
+                self.analyze_email()
+                
+            except Exception as e:
+                messagebox.showerror("Error", f"Could not write to whitelist:\n{str(e)}")
 
     def save_report_dialog(self):
         if not self.parsed_email or not self.risk_result:
@@ -253,7 +332,6 @@ class PhishGuardGUI:
             messagebox.showinfo("Saved", f"Analysis report successfully saved to:\n{save_path}")
 
 
-# Run GUI block
 if __name__ == "__main__":
     root = tk.Tk()
     app = PhishGuardGUI(root)
