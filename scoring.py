@@ -1,20 +1,27 @@
-# phishguard/scoring.py (or scoring.py)
 from typing import List
 from models import Indicator, RiskLevel, RiskResult
 
-# Define clear, configurable scoring thresholds
 THRESHOLD_MEDIUM = 20
 THRESHOLD_HIGH = 50
 
-def calculate_risk(indicators: List[Indicator]) -> RiskResult:
+def calculate_risk(indicators: List[Indicator], whitelisted: bool = False) -> RiskResult:
     """
-    Sums the risk points from all triggered indicators and 
-    determines the overall RiskLevel classification.
+    Sums risk points and determines the RiskLevel. 
+    Bypasses and returns a clean result if whitelisted is True.
     """
-    # 1. Sum up all indicator points
+    if whitelisted:
+        return RiskResult(
+            score=0,
+            level=RiskLevel.LOW,
+            indicators=[Indicator(
+                name="WHITELISTED_SENDER", 
+                points=0, 
+                description="This sender or domain is on your local Whitelist."
+            )]
+        )
+
     total_score = sum(ind.points for ind in indicators)
     
-    # 2. Classify based on thresholds
     if total_score >= THRESHOLD_HIGH:
         level = RiskLevel.HIGH
     elif total_score >= THRESHOLD_MEDIUM:
@@ -22,7 +29,6 @@ def calculate_risk(indicators: List[Indicator]) -> RiskResult:
     else:
         level = RiskLevel.LOW
         
-    # 3. Return the populated RiskResult object
     return RiskResult(
         score=total_score,
         level=level,
