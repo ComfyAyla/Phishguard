@@ -1,4 +1,7 @@
 # main.py
+# CLI entry for the applications: it loads the email file, parses it, runs all the detectors, calculates the risk score
+# finally it generates a text report and saves it to disk (hardcoded path)
+
 import sys
 import os
 
