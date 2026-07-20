@@ -1,3 +1,5 @@
+# this file contains the definition of mutliple classes that are used throught the project
+
 from dataclasses import dataclass, field
 from enum import Enum
 from typing import List, Dict

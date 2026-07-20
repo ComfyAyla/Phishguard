@@ -1,3 +1,7 @@
+#attachments.py
+# analizes attachment filenames in an Emailmessage object and flags dangerous file extensions (defined below)
+
+
 import os
 from typing import List
 from models import Indicator, EmailMessage

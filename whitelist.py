@@ -1,3 +1,6 @@
+# whitelist.py
+# it reads whitelist.txt and checks against it if the sender is a trusted one listed there
+
 import os
 import re
 from typing import List

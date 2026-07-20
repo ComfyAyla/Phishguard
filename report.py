@@ -1,4 +1,6 @@
 # report.py
+# it saves the analysis findings into a text file
+
 from datetime import date
 from typing import List
 from models import EmailMessage, RiskResult

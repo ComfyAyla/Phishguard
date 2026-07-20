@@ -1,4 +1,7 @@
 # detectors/sender.py
+# analyzes sender's email address, to detect suspicous top-level domains and domains listed in blacklist.txt4
+# returns Indicator objects taht are used in the grading engine
+
 import os
 import re
 from typing import List

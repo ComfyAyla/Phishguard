@@ -1,4 +1,7 @@
 # detectors/keywords.py
+# scans the subject andbody of email for suspicious keywords (defined below)
+# it generates Indicator objects that contribute to final risk score
+
 from typing import List
 from models import Indicator, EmailMessage
 

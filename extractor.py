@@ -1,4 +1,8 @@
 # extractor.py
+# Responsible for finding URLs, extracts the sender string from the headers
+# it can handle domain-based URLs and IP-based URLs
+# it also supports defanged formats that are used in malware analysis (ex: hxxp -> http; [.] -> .; [:] -> :) - allows it to detect URLs even when attackers try to hide them
+
 import re
 from typing import List
 

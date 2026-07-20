@@ -1,4 +1,7 @@
 # test_phishguard.py
+# handles unit testing using Python's unittest framework for automated tests
+# each test builds sample input, runs one part of system, and checks the output with assertions 
+
 import unittest
 
 # Import our domain models and core engine

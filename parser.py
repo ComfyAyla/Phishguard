@@ -1,13 +1,19 @@
+# parser.py
+# reads raw .eml file and parses it into an EmailMessage dataclass (that we made ourselves)
+# extracts headers, dender, subject, body text, links, attachments
+
 import email
 from email.message import Message
 from typing import Dict, List
 from models import EmailMessage
 from extractor import extract_links
 
+# oepn file, read contents at text, return as raw string
 def read_email_file(file_path: str) -> str:
     with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
         return f.read()
 
+# convert raw text into Message object, allows access to headers/body parts/attachments 
 def parse_email(raw_content: str) -> EmailMessage:
     msg: Message = email.message_from_string(raw_content)
     headers: Dict[str, str] = {k: v for k, v in msg.items()}

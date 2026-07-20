@@ -1,4 +1,7 @@
 # detectors/urls.py
+# analyzes URLs found in email and flags suspicious patterns
+# returns list of Indicator object that are used by the scoring engine
+
 import re
 from typing import List
 from models import Indicator, EmailMessage

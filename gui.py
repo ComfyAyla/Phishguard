@@ -1,3 +1,16 @@
+# PhishGuardGUI class
+# this class handles the front-end of the application through Tkinter module
+# It builds the GUI layout, loads the .eml/.txt files, runs the background detectors, displays sender/subject/links/attachemts, shows risk score and indicators, and options for the user to delete/keep/whitelist/save report
+#  
+
+#   ----- CODING REQUIREMENTS MET ----- 
+# 1. FUNCTIONS - everywhere
+# 2. CLASSE - PhishGuardGUI
+# 3. FILE HANDLING - in functions save_report_dialog(), generate_text_report(), action_whitelist(), action_delete() etc.
+#       File handling is through OS module
+# 4. CASTING - typecasts to string str(e), regex extraction to string, list to string writing
+# 5. MODULE - OS module is used
+
 import os
 import re
 import tkinter as tk
@@ -14,15 +27,16 @@ from detectors.whitelist import is_sender_whitelisted  # <-- New Import
 from scoring import calculate_risk
 from report import generate_text_report, save_report_to_file
 
-
+# use of Classes and Functions shown here
 class PhishGuardGUI:
+    # initialization - creates main window, sets size, title and background
     def __init__(self, root):
         self.root = root
         self.root.title("PhishGuard - Interactive Email Threat Analyzer")
         self.root.geometry("900x750")
         self.root.configure(bg="#1e1e2e")
 
-        # Track state
+        # Track state - store file being analized, parsed email object, risk score and indicators
         self.current_file_path = None
         self.parsed_email = None
         self.risk_result = None
@@ -30,6 +44,7 @@ class PhishGuardGUI:
         self.setup_styles()
         self.build_ui()
 
+    # configures the ttk styles: background colors, label fonts, card frames, button styles
     def setup_styles(self):
         """Set up modern colors and styles using ttk."""
         self.style = ttk.Style()
@@ -43,6 +58,7 @@ class PhishGuardGUI:
         self.style.configure("Body.TLabel", background="#252538", foreground="#cdd6f4", font=("Segoe UI", 10))
         self.style.configure("Action.TButton", font=("Segoe UI", 10, "bold"), padding=6)
 
+    # builds entire layout: top bar, left column, right column, footer
     def build_ui(self):
         """Builds the window structure layout."""
         top_frame = ttk.Frame(self.root, padding=15)
@@ -135,6 +151,7 @@ class PhishGuardGUI:
         self.btn_save_report = tk.Button(btn_row, text="💾 SAVE REPORT", bg="#fab387", fg="#11111b", font=("Segoe UI", 10, "bold"), relief="flat", padx=10, pady=5, command=self.save_report_dialog)
         self.btn_save_report.pack(side="left", padx=10)
 
+    # opens file dialog and selecting a file triggers analysis
     def browse_file(self):
         """Open a file dialog to locate an email file."""
         file_path = filedialog.askopenfilename(
@@ -145,6 +162,8 @@ class PhishGuardGUI:
             self.current_file_path = file_path
             self.analyze_email()
 
+    # pipeline to backend wherein functions in detectors folder, parser, report etc. are called
+    # it reads and parses the data, checks the whitelist to know if/when to skip detectors, runs detectors to assess the threat, calculates risk score, and updates the GUI
     def analyze_email(self):
         """Drives the backend pipeline and displays results in the GUI."""
         try:
@@ -169,8 +188,10 @@ class PhishGuardGUI:
             # 4. Populate GUI elements
             self.update_gui_displays()
         except Exception as e:
+            # usage of typecasting shown here (str(e))
             messagebox.showerror("Parsing Error", f"Failed to analyze email file:\n{str(e)}")
 
+    # updates the GUI based on findings from previous function
     def update_gui_displays(self):
         """Updates UI labels and text boxes with parsed analysis details."""
         self.sender_lbl.config(text=f"Sender: {self.parsed_email.sender}")
@@ -211,6 +232,7 @@ class PhishGuardGUI:
         else:
             self.indicators_text.insert(tk.END, "No suspicious technical markers triggered.")
 
+    # resets the display to original state
     def reset_display(self):
         """Resets the UI back to empty state."""
         self.current_file_path = None
@@ -233,6 +255,8 @@ class PhishGuardGUI:
         self.indicators_text.insert(tk.END, "No suspicious technical markers triggered.")
 
     # --- Interactive Button Actions (Fully Functional!) ---
+    
+    # deletes email from disk and adds domain to blacklist.txt, resets GUI
     def action_delete(self):
         if not self.parsed_email or not self.current_file_path:
             messagebox.showwarning("No Email", "Please load an email file first!")
@@ -275,6 +299,7 @@ class PhishGuardGUI:
             except Exception as e:
                 messagebox.showerror("Error", f"Could not complete action:\n{str(e)}")
 
+    # simply resets the GUI and doesn't delete file
     def action_keep(self):
         if not self.parsed_email:
             return
@@ -282,6 +307,7 @@ class PhishGuardGUI:
         self.reset_display()
         messagebox.showinfo("Cleared", "Active preview cleared. File remains safely stored in your system.")
 
+    # adds domain to whitelist.txt, updates risk level to LOW after re-running analysis
     def action_whitelist(self):
         if not self.parsed_email:
             messagebox.showwarning("No Email", "Please load an email file first!")
@@ -313,6 +339,7 @@ class PhishGuardGUI:
             except Exception as e:
                 messagebox.showerror("Error", f"Could not write to whitelist:\n{str(e)}")
 
+    # saves findings to a .txt file summarizing findings of analysis
     def save_report_dialog(self):
         if not self.parsed_email or not self.risk_result:
             messagebox.showwarning("No Data", "Please scan an email before saving a report.")
@@ -331,7 +358,7 @@ class PhishGuardGUI:
             save_report_to_file(report_text, save_path)
             messagebox.showinfo("Saved", f"Analysis report successfully saved to:\n{save_path}")
 
-
+# allows you to launch application from terminal
 if __name__ == "__main__":
     root = tk.Tk()
     app = PhishGuardGUI(root)

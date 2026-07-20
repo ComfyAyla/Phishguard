@@ -1,3 +1,7 @@
+# whitelist.py
+# it reads whitelist.txt and checks against it if the sender is a trusted one listed there
+# it allows the scanner to skip detectors for trusted senders
+
 import os
 import re
 from typing import List

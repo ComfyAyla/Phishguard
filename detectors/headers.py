@@ -1,3 +1,8 @@
+# headers.py
+# inspects email headers in an EmailMessage object and flags 2 phishing indicators:
+#   1. missing Message-ID header
+#   2. Reply-To address doesn't match From address
+
 from typing import List
 from models import Indicator, EmailMessage
 
