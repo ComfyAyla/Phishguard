@@ -1,0 +1,26 @@
+From: "Account Services" <no-reply@update-center-info.com>
+To: Milka <milka@example.com>
+Subject: Please Verify Your Account Information
+Date: Sun, 19 Jul 2026 19:06:00 -0700
+Message-ID: <phish-medium-002@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset="UTF-8"
+
+<html>
+<body>
+<p>Hello,</p>
+
+<p>We noticed incomplete information in your profile and require a quick verification to ensure uninterrupted service.</p>
+
+<p>
+<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+Verify Your Profile
+</a>
+</p>
+
+<p>This process takes less than a minute.</p>
+
+<p>Thank you,<br>
+Account Services Team</p>
+</body>
+</html>

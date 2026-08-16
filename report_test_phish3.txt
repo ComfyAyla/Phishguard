@@ -1,0 +1,31 @@
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+Possible Phishing Email Detected - Report
+Generated: 2026-07-19
+Analyzed File: test_phish3.eml
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+Sender: "Account Services" <no-reply@update-center-info.com>
+Reply-To: None
+Subject: Please Verify Your Account Information
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+Links Found: 
+https://www.youtube.com/watch?v=dQw4w9WgXcQ
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+Keyword Verify: Suspicious keyword found: 'verify'
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+Risk Rating:
+Verify                   +5
+————————————————————————————————————————————
+Total Risk Rating: 5 – RiskLevel.LOW
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+Summary:
+This email displays low-risk characteristics and did not trigger major security indicators. However, always exercise standard caution when clicking links or downloading attachments.
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+Recommended Action(s)
+Do not click any links provided
+Do not reply
+Report to your security team
+Delete the email from the inbox
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+Would you like to Delete this email and block the sender?
+YES         NO      Whitelist the Sender
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

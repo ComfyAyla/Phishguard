@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # HTML extraction to capture anchor tent wih destination URLS
     # Added batch scanning for directories
 import os
@@ -115,3 +116,69 @@ def parse_email_batch(target_path: str) -> List[Tuple[str, EmailMessage]]:
         raise ValueError("Invalid target path provided.")
         
     return results
+=======
+# parser.py
+# reads raw .eml file and parses it into an EmailMessage dataclass (that we made ourselves)
+# extracts headers, dender, subject, body text, links, attachments
+
+import email
+from email.message import Message
+from typing import Dict, List
+from models import EmailMessage
+from extractor import extract_links
+
+# oepn file, read contents at text, return as raw string
+def read_email_file(file_path: str) -> str:
+    with open(file_path, 'r', encoding='utf-8', errors='ignore') as f:
+        return f.read()
+
+# convert raw text into Message object, allows access to headers/body parts/attachments 
+def parse_email(raw_content: str) -> EmailMessage:
+    msg: Message = email.message_from_string(raw_content)
+    headers: Dict[str, str] = {k: v for k, v in msg.items()}
+    sender = headers.get("From", "Unknown Sender")
+    subject = headers.get("Subject", "(No Subject)")
+    
+    body_parts: List[str] = []
+    links: List[str] = []
+    attachments: List[str] = []  # <-- Track attachment names
+    
+    if msg.is_multipart():
+        for part in msg.walk():
+            content_type = part.get_content_type()
+            content_disposition = str(part.get("Content-Disposition"))
+            filename = part.get_filename()
+            
+            # Check if this part is an attachment
+            if "attachment" in content_disposition or filename:
+                if filename:
+                    attachments.append(filename)
+            else:
+                # This is standard body text/html
+                if content_type in ["text/plain", "text/html"]:
+                    try:
+                        payload = part.get_payload(decode=True).decode('utf-8', errors='ignore')
+                        body_parts.append(payload)
+                        links.extend(extract_links(payload))
+                    except Exception:
+                        continue
+    else:
+        payload = msg.get_payload(decode=True)
+        if payload:
+            decoded_payload = payload.decode('utf-8', errors='ignore')
+            body_parts.append(decoded_payload)
+            links.extend(extract_links(decoded_payload))
+
+    combined_body = "\n".join(body_parts)
+    unique_links = list(dict.fromkeys(links))
+    
+    return EmailMessage(
+        sender=sender,
+        subject=subject,
+        body=combined_body,
+        links=unique_links,
+        headers=headers,
+        attachments=attachments,  # <-- Pass attachments to our object
+        raw=raw_content
+    )
+>>>>>>> 8bd1d38f5802b1da35f04e239778b5b0b3f0ece0

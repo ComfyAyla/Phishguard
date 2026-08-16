@@ -1,0 +1,33 @@
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+Possible Phishing Email Detected - Report
+Generated: 2026-07-19
+Analyzed File: test_phish1.eml
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+Sender: "Security Alert" <no-reply@account-update.com>
+Reply-To: None
+Subject: Urgent: Verify Your Account Immediately
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+Links Found: 
+https://www.youtube.com/watch?v=dQw4w9WgXcQ
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+Keyword Urgent: Suspicious keyword found: 'urgent'
+Keyword Verify: Suspicious keyword found: 'verify'
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+Risk Rating:
+Urgent                   +5
+Verify                   +5
+————————————————————————————————————————————
+Total Risk Rating: 10 – RiskLevel.LOW
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+Summary:
+This email displays low-risk characteristics and did not trigger major security indicators. However, always exercise standard caution when clicking links or downloading attachments.
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+Recommended Action(s)
+Do not click any links provided
+Do not reply
+Report to your security team
+Delete the email from the inbox
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+Would you like to Delete this email and block the sender?
+YES         NO      Whitelist the Sender
+————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

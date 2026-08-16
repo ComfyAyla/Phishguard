@@ -1,0 +1,27 @@
+From: "IT Support" <security-alert@verify-access-login.com>
+To: Milka <milka@example.com>
+Subject: Immediate Action Required: Password Reset Needed
+Date: Sun, 19 Jul 2026 19:05:00 -0700
+Message-ID: <phish-high-001@example.com>
+MIME-Version: 1.0
+Content-Type: text/html; charset="UTF-8"
+
+<html>
+<body>
+<p>Dear user,</p>
+
+<p>Your account password has been flagged due to multiple unauthorized login attempts.</p>
+
+<p>You must reset your password immediately to avoid automatic lockout.</p>
+
+<p>
+<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">
+Reset Password Now
+</a>
+</p>
+
+<p>Failure to act within 30 minutes will result in restricted access.</p>
+
+<p>IT Security Department</p>
+</body>
+</html>
