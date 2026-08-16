@@ -1,0 +1,5 @@
+2026-08-16 10:14:35,192 [WARNING] PhishGuard: GUI launch failed or unavailable, falling back to CLI: No module named 'gui'
+2026-08-16 10:17:11,927 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 10:17:31,673 [DEBUG] PhishGuard: Keyword trigger detected: 'urgent' (+5 pts)
+2026-08-16 10:17:31,674 [DEBUG] PhishGuard: Keyword trigger detected: 'security alert' (+5 pts)
+2026-08-16 10:17:31,674 [DEBUG] PhishGuard: Risk calculation completed: Score=25, Level=RiskLevel.HIGH, IndicatorsCount=3
