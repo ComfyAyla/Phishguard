@@ -3,3 +3,193 @@
 2026-08-16 10:17:31,673 [DEBUG] PhishGuard: Keyword trigger detected: 'urgent' (+5 pts)
 2026-08-16 10:17:31,674 [DEBUG] PhishGuard: Keyword trigger detected: 'security alert' (+5 pts)
 2026-08-16 10:17:31,674 [DEBUG] PhishGuard: Risk calculation completed: Score=25, Level=RiskLevel.HIGH, IndicatorsCount=3
+2026-08-16 17:14:53,368 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 17:16:59,705 [DEBUG] PhishGuard: Risk calculation completed: Score=15, Level=RiskLevel.MEDIUM, IndicatorsCount=1
+2026-08-16 17:23:39,102 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 17:23:39,490 [WARNING] PhishGuard: GUI launch failed or unavailable, falling back to CLI: name 'indicators_card' is not defined
+2026-08-16 17:25:13,000 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 17:25:13,395 [WARNING] PhishGuard: GUI launch failed or unavailable, falling back to CLI: name 'indicators_card' is not defined
+2026-08-16 17:28:58,083 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 17:28:58,471 [WARNING] PhishGuard: GUI launch failed or unavailable, falling back to CLI: name 'indicators_card' is not defined
+2026-08-16 17:29:31,183 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 17:29:31,577 [WARNING] PhishGuard: GUI launch failed or unavailable, falling back to CLI: name 'indicators_card' is not defined
+2026-08-16 17:30:09,988 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 17:30:10,471 [WARNING] PhishGuard: GUI launch failed or unavailable, falling back to CLI: name 'indicators_card' is not defined
+2026-08-16 17:33:09,065 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 17:33:09,510 [WARNING] PhishGuard: GUI launch failed or unavailable, falling back to CLI: name 'indicators_card' is not defined
+2026-08-16 17:33:50,205 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 17:33:50,689 [WARNING] PhishGuard: GUI launch failed or unavailable, falling back to CLI: name 'indicators_card' is not defined
+2026-08-16 17:33:57,141 [DEBUG] PhishGuard: Risk calculation completed: Score=15, Level=RiskLevel.MEDIUM, IndicatorsCount=1
+2026-08-16 17:34:55,305 [DEBUG] PhishGuard: Risk calculation completed: Score=15, Level=RiskLevel.MEDIUM, IndicatorsCount=1
+2026-08-16 17:39:47,292 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 17:40:00,436 [DEBUG] PhishGuard: Risk calculation completed: Score=15, Level=RiskLevel.MEDIUM, IndicatorsCount=1
+2026-08-16 17:44:14,436 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 17:44:24,593 [DEBUG] PhishGuard: Risk calculation completed: Score=15, Level=RiskLevel.MEDIUM, IndicatorsCount=1
+2026-08-16 17:53:21,915 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 17:53:27,532 [DEBUG] PhishGuard: Risk calculation completed: Score=15, Level=RiskLevel.MEDIUM, IndicatorsCount=1
+2026-08-16 17:56:48,401 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 17:56:52,469 [DEBUG] PhishGuard: Risk calculation completed: Score=15, Level=RiskLevel.MEDIUM, IndicatorsCount=1
+2026-08-16 17:58:33,832 [WARNING] PhishGuard: GUI launch failed or unavailable, falling back to CLI: unindent does not match any outer indentation level (gui.py, line 311)
+2026-08-16 17:58:44,184 [DEBUG] PhishGuard: Risk calculation completed: Score=15, Level=RiskLevel.MEDIUM, IndicatorsCount=1
+2026-08-16 17:58:50,142 [WARNING] PhishGuard: GUI launch failed or unavailable, falling back to CLI: unindent does not match any outer indentation level (gui.py, line 311)
+2026-08-16 17:59:15,772 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 17:59:23,374 [DEBUG] PhishGuard: Risk calculation completed: Score=15, Level=RiskLevel.MEDIUM, IndicatorsCount=1
+2026-08-16 18:00:54,739 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 18:00:58,685 [DEBUG] PhishGuard: Risk calculation completed: Score=15, Level=RiskLevel.MEDIUM, IndicatorsCount=1
+2026-08-16 18:02:59,729 [DEBUG] PhishGuard: Keyword trigger detected: 'urgent' (+5 pts)
+2026-08-16 18:02:59,729 [DEBUG] PhishGuard: Keyword trigger detected: 'ssn' (+20 pts)
+2026-08-16 18:02:59,730 [DEBUG] PhishGuard: Risk calculation completed: Score=60, Level=RiskLevel.HIGH, IndicatorsCount=5
+2026-08-16 18:03:14,888 [INFO] PhishGuard: Sender is on whitelist. Skipping threat scoring and overriding risk to LOW.
+2026-08-16 18:06:24,223 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 18:06:28,984 [DEBUG] PhishGuard: Risk calculation completed: Score=15, Level=RiskLevel.MEDIUM, IndicatorsCount=1
+2026-08-16 18:08:06,345 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 18:08:13,515 [INFO] PhishGuard: Sender is on whitelist. Skipping threat scoring and overriding risk to LOW.
+2026-08-16 19:49:11,928 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 19:49:23,731 [DEBUG] PhishGuard: Risk calculation completed: Score=0, Level=RiskLevel.LOW, IndicatorsCount=0
+2026-08-16 19:49:36,605 [DEBUG] PhishGuard: Keyword trigger detected: 'urgent' (+5 pts)
+2026-08-16 19:49:36,605 [DEBUG] PhishGuard: Risk calculation completed: Score=5, Level=RiskLevel.LOW, IndicatorsCount=1
+2026-08-16 19:49:54,847 [DEBUG] PhishGuard: Risk calculation completed: Score=0, Level=RiskLevel.LOW, IndicatorsCount=0
+2026-08-16 19:50:06,076 [DEBUG] PhishGuard: Keyword trigger detected: 'immediate action required' (+10 pts)
+2026-08-16 19:50:06,077 [DEBUG] PhishGuard: Keyword trigger detected: 'unauthorized login' (+10 pts)
+2026-08-16 19:50:06,077 [DEBUG] PhishGuard: Keyword trigger detected: 'password reset' (+10 pts)
+2026-08-16 19:50:06,077 [DEBUG] PhishGuard: Risk calculation completed: Score=30, Level=RiskLevel.HIGH, IndicatorsCount=3
+2026-08-16 19:50:24,651 [DEBUG] PhishGuard: Keyword trigger detected: 'urgent' (+5 pts)
+2026-08-16 19:50:24,652 [DEBUG] PhishGuard: Risk calculation completed: Score=5, Level=RiskLevel.LOW, IndicatorsCount=1
+2026-08-16 19:58:30,096 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 19:58:46,176 [DEBUG] PhishGuard: Keyword trigger detected: 'immediate action required' (+10 pts)
+2026-08-16 19:58:46,176 [DEBUG] PhishGuard: Keyword trigger detected: 'account locked' (+10 pts)
+2026-08-16 19:58:46,176 [DEBUG] PhishGuard: Keyword trigger detected: 'security alert' (+5 pts)
+2026-08-16 19:58:46,177 [DEBUG] PhishGuard: Keyword trigger detected: 'unauthorized login' (+10 pts)
+2026-08-16 19:58:46,177 [DEBUG] PhishGuard: Risk calculation completed: Score=55, Level=RiskLevel.HIGH, IndicatorsCount=6
+2026-08-16 19:59:12,393 [DEBUG] PhishGuard: Keyword trigger detected: 'urgent' (+5 pts)
+2026-08-16 19:59:12,393 [DEBUG] PhishGuard: Keyword trigger detected: 'invoice attached' (+10 pts)
+2026-08-16 19:59:12,393 [DEBUG] PhishGuard: Keyword trigger detected: 'overdue payment' (+10 pts)
+2026-08-16 19:59:12,393 [WARNING] PhishGuard: Double extension masquerade detected: Invoice_July2026.pdf.exe
+2026-08-16 19:59:12,394 [DEBUG] PhishGuard: Risk calculation completed: Score=80, Level=RiskLevel.HIGH, IndicatorsCount=5
+2026-08-16 19:59:32,310 [DEBUG] PhishGuard: Keyword trigger detected: 'security alert' (+5 pts)
+2026-08-16 19:59:32,310 [DEBUG] PhishGuard: Keyword trigger detected: 'unauthorized login' (+10 pts)
+2026-08-16 19:59:32,311 [DEBUG] PhishGuard: Risk calculation completed: Score=25, Level=RiskLevel.HIGH, IndicatorsCount=3
+2026-08-16 19:59:44,939 [DEBUG] PhishGuard: Risk calculation completed: Score=0, Level=RiskLevel.LOW, IndicatorsCount=0
+2026-08-16 19:59:51,923 [DEBUG] PhishGuard: Keyword trigger detected: 'security alert' (+5 pts)
+2026-08-16 19:59:51,923 [DEBUG] PhishGuard: Keyword trigger detected: 'unauthorized login' (+10 pts)
+2026-08-16 19:59:51,924 [DEBUG] PhishGuard: Risk calculation completed: Score=25, Level=RiskLevel.HIGH, IndicatorsCount=3
+2026-08-16 20:01:35,027 [ERROR] PhishGuard: Execution error in CLI: Invalid target path provided.
+2026-08-16 20:02:32,570 [ERROR] PhishGuard: Execution error in CLI: Invalid target path provided.
+2026-08-16 20:02:58,700 [ERROR] PhishGuard: Execution error in CLI: Invalid target path provided.
+2026-08-16 20:03:02,292 [DEBUG] PhishGuard: Keyword trigger detected: 'urgent' (+5 pts)
+2026-08-16 20:03:02,292 [DEBUG] PhishGuard: Keyword trigger detected: 'wire transfer' (+15 pts)
+2026-08-16 20:03:02,292 [DEBUG] PhishGuard: Risk calculation completed: Score=35, Level=RiskLevel.HIGH, IndicatorsCount=3
+2026-08-16 20:29:44,052 [WARNING] PhishGuard: GUI launch failed or unavailable, falling back to CLI: cannot import name 'read_email_file' from 'parser' (c:\Users\Jemma\Desktop\phishgaurd updated\parser.py)
+2026-08-16 20:35:45,509 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 20:35:59,684 [DEBUG] PhishGuard: Keyword trigger detected: 'urgent' (+5 pts)
+2026-08-16 20:35:59,685 [DEBUG] PhishGuard: Keyword trigger detected: 'invoice attached' (+10 pts)
+2026-08-16 20:35:59,685 [DEBUG] PhishGuard: Keyword trigger detected: 'overdue payment' (+10 pts)
+2026-08-16 20:35:59,685 [WARNING] PhishGuard: Double extension masquerade detected: Invoice_July2026.pdf.exe
+2026-08-16 20:35:59,685 [DEBUG] PhishGuard: Risk calculation completed: Score=80, Level=RiskLevel.HIGH, IndicatorsCount=5
+2026-08-16 20:39:00,089 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 20:39:07,224 [DEBUG] PhishGuard: Keyword trigger detected: 'immediate action required' (+10 pts)
+2026-08-16 20:39:07,224 [DEBUG] PhishGuard: Keyword trigger detected: 'account locked' (+10 pts)
+2026-08-16 20:39:07,224 [DEBUG] PhishGuard: Keyword trigger detected: 'security alert' (+5 pts)
+2026-08-16 20:39:07,224 [DEBUG] PhishGuard: Keyword trigger detected: 'unauthorized login' (+10 pts)
+2026-08-16 20:39:07,224 [INFO] PhishGuard: Link spoofing detected: Anchor=paypal.com vs Href=login-phish-domain.com
+2026-08-16 20:39:07,224 [DEBUG] PhishGuard: Risk calculation completed: Score=70, Level=RiskLevel.HIGH, IndicatorsCount=6
+2026-08-16 20:40:50,655 [DEBUG] PhishGuard: Keyword trigger detected: 'immediate action required' (+10 pts)
+2026-08-16 20:40:50,656 [DEBUG] PhishGuard: Keyword trigger detected: 'account locked' (+10 pts)
+2026-08-16 20:40:50,656 [DEBUG] PhishGuard: Keyword trigger detected: 'security alert' (+5 pts)
+2026-08-16 20:40:50,656 [DEBUG] PhishGuard: Keyword trigger detected: 'unauthorized login' (+10 pts)
+2026-08-16 20:40:50,656 [INFO] PhishGuard: Link spoofing detected: Anchor=paypal.com vs Href=login-phish-domain.com
+2026-08-16 20:40:50,656 [DEBUG] PhishGuard: Risk calculation completed: Score=70, Level=RiskLevel.HIGH, IndicatorsCount=6
+2026-08-16 20:40:50,657 [DEBUG] PhishGuard: Keyword trigger detected: 'immediate action required' (+10 pts)
+2026-08-16 20:40:50,657 [DEBUG] PhishGuard: Keyword trigger detected: 'legal action' (+15 pts)
+2026-08-16 20:40:50,658 [DEBUG] PhishGuard: Risk calculation completed: Score=40, Level=RiskLevel.HIGH, IndicatorsCount=3
+2026-08-16 20:40:50,658 [DEBUG] PhishGuard: Keyword trigger detected: 'urgent' (+5 pts)
+2026-08-16 20:40:50,658 [DEBUG] PhishGuard: Keyword trigger detected: 'account suspended' (+10 pts)
+2026-08-16 20:40:50,659 [INFO] PhishGuard: Link spoofing detected: Anchor=trusted-portal.com vs Href=10.0.0.45
+2026-08-16 20:40:50,659 [DEBUG] PhishGuard: Risk calculation completed: Score=0, Level=RiskLevel.LOW, IndicatorsCount=0
+2026-08-16 20:40:50,661 [DEBUG] PhishGuard: Risk calculation completed: Score=0, Level=RiskLevel.LOW, IndicatorsCount=0
+2026-08-16 20:40:50,662 [WARNING] PhishGuard: Double extension masquerade detected: Verification_Form.doc.exe
+2026-08-16 20:40:50,662 [DEBUG] PhishGuard: Risk calculation completed: Score=0, Level=RiskLevel.LOW, IndicatorsCount=0
+2026-08-16 20:40:50,662 [DEBUG] PhishGuard: Risk calculation completed: Score=145, Level=RiskLevel.HIGH, IndicatorsCount=9
+2026-08-16 20:40:50,662 [DEBUG] PhishGuard: Risk calculation completed: Score=0, Level=RiskLevel.LOW, IndicatorsCount=0
+2026-08-16 20:40:50,663 [DEBUG] PhishGuard: Keyword trigger detected: 'verify identity' (+10 pts)
+2026-08-16 20:40:50,663 [DEBUG] PhishGuard: Keyword trigger detected: 'urgent' (+5 pts)
+2026-08-16 20:40:50,664 [DEBUG] PhishGuard: Keyword trigger detected: 'invoice attached' (+10 pts)
+2026-08-16 20:40:50,664 [DEBUG] PhishGuard: Keyword trigger detected: 'overdue payment' (+10 pts)
+2026-08-16 20:40:50,665 [DEBUG] PhishGuard: Risk calculation completed: Score=0, Level=RiskLevel.LOW, IndicatorsCount=0
+2026-08-16 20:40:50,664 [DEBUG] PhishGuard: Risk calculation completed: Score=50, Level=RiskLevel.HIGH, IndicatorsCount=4
+2026-08-16 20:40:50,665 [DEBUG] PhishGuard: Keyword trigger detected: 'security alert' (+5 pts)
+2026-08-16 20:40:50,666 [DEBUG] PhishGuard: Keyword trigger detected: 'urgent' (+5 pts)
+2026-08-16 20:40:50,666 [DEBUG] PhishGuard: Keyword trigger detected: 'unauthorized login' (+10 pts)
+2026-08-16 20:40:50,666 [DEBUG] PhishGuard: Keyword trigger detected: 'ssn' (+20 pts)
+2026-08-16 20:40:50,666 [WARNING] PhishGuard: Double extension masquerade detected: Invoice_July2026.pdf.exe
+2026-08-16 20:40:50,667 [DEBUG] PhishGuard: Risk calculation completed: Score=80, Level=RiskLevel.HIGH, IndicatorsCount=5
+2026-08-16 20:40:50,667 [DEBUG] PhishGuard: Keyword trigger detected: 'social security' (+20 pts)
+2026-08-16 20:40:50,666 [DEBUG] PhishGuard: Keyword trigger detected: 'wire transfer' (+15 pts)
+2026-08-16 20:40:50,667 [DEBUG] PhishGuard: Keyword trigger detected: 'confirm your account' (+10 pts)
+2026-08-16 20:40:50,668 [DEBUG] PhishGuard: Risk calculation completed: Score=25, Level=RiskLevel.HIGH, IndicatorsCount=3
+2026-08-16 20:40:50,668 [DEBUG] PhishGuard: Keyword trigger detected: 'ssn' (+20 pts)
+2026-08-16 20:40:50,668 [DEBUG] PhishGuard: Keyword trigger detected: 'social security' (+20 pts)
+2026-08-16 20:40:50,668 [DEBUG] PhishGuard: Risk calculation completed: Score=65, Level=RiskLevel.HIGH, IndicatorsCount=4
+2026-08-16 20:40:50,668 [DEBUG] PhishGuard: Risk calculation completed: Score=50, Level=RiskLevel.HIGH, IndicatorsCount=3
+2026-08-16 20:40:50,668 [DEBUG] PhishGuard: Keyword trigger detected: 'confirm your account' (+10 pts)
+2026-08-16 20:40:50,669 [DEBUG] PhishGuard: Keyword trigger detected: 'urgent' (+5 pts)
+2026-08-16 20:40:50,669 [DEBUG] PhishGuard: Keyword trigger detected: 'gift card' (+20 pts)
+2026-08-16 20:40:50,670 [DEBUG] PhishGuard: Keyword trigger detected: 'direct deposit' (+15 pts)
+2026-08-16 20:40:50,669 [DEBUG] PhishGuard: Keyword trigger detected: 'security alert' (+5 pts)
+2026-08-16 20:40:50,670 [DEBUG] PhishGuard: Keyword trigger detected: 'password reset' (+10 pts)
+2026-08-16 20:40:50,671 [DEBUG] PhishGuard: Risk calculation completed: Score=50, Level=RiskLevel.HIGH, IndicatorsCount=3
+2026-08-16 20:40:50,671 [DEBUG] PhishGuard: Risk calculation completed: Score=50, Level=RiskLevel.HIGH, IndicatorsCount=4
+2026-08-16 20:40:50,671 [DEBUG] PhishGuard: Risk calculation completed: Score=40, Level=RiskLevel.HIGH, IndicatorsCount=3
+2026-08-16 20:44:42,667 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 20:44:57,433 [DEBUG] PhishGuard: Keyword trigger detected: 'verify identity' (+10 pts)
+2026-08-16 20:44:57,434 [INFO] PhishGuard: Sender is on whitelist. Skipping threat scoring and overriding risk to LOW.
+2026-08-16 20:44:57,434 [DEBUG] PhishGuard: Keyword trigger detected: 'security alert' (+5 pts)
+2026-08-16 20:44:57,434 [DEBUG] PhishGuard: Keyword trigger detected: 'ssn' (+20 pts)
+2026-08-16 20:44:57,434 [DEBUG] PhishGuard: Keyword trigger detected: 'urgent' (+5 pts)
+2026-08-16 20:44:57,434 [DEBUG] PhishGuard: Keyword trigger detected: 'ssn' (+20 pts)
+2026-08-16 20:44:57,434 [DEBUG] PhishGuard: Keyword trigger detected: 'urgent' (+5 pts)
+2026-08-16 20:44:57,434 [DEBUG] PhishGuard: Keyword trigger detected: 'unauthorized login' (+10 pts)
+2026-08-16 20:44:57,435 [DEBUG] PhishGuard: Risk calculation completed: Score=50, Level=RiskLevel.HIGH, IndicatorsCount=4
+2026-08-16 20:44:57,435 [DEBUG] PhishGuard: Keyword trigger detected: 'urgent' (+5 pts)
+2026-08-16 20:44:57,435 [DEBUG] PhishGuard: Keyword trigger detected: 'social security' (+20 pts)
+2026-08-16 20:44:57,435 [DEBUG] PhishGuard: Keyword trigger detected: 'invoice attached' (+10 pts)
+2026-08-16 20:44:57,435 [DEBUG] PhishGuard: Keyword trigger detected: 'social security' (+20 pts)
+2026-08-16 20:44:57,435 [DEBUG] PhishGuard: Keyword trigger detected: 'gift card' (+20 pts)
+2026-08-16 20:44:57,435 [DEBUG] PhishGuard: Keyword trigger detected: 'wire transfer' (+15 pts)
+2026-08-16 20:44:57,435 [DEBUG] PhishGuard: Keyword trigger detected: 'confirm your account' (+10 pts)
+2026-08-16 20:44:57,435 [DEBUG] PhishGuard: Keyword trigger detected: 'overdue payment' (+10 pts)
+2026-08-16 20:44:57,436 [DEBUG] PhishGuard: Risk calculation completed: Score=25, Level=RiskLevel.HIGH, IndicatorsCount=3
+2026-08-16 20:44:57,436 [DEBUG] PhishGuard: Keyword trigger detected: 'confirm your account' (+10 pts)
+2026-08-16 20:44:57,436 [DEBUG] PhishGuard: Keyword trigger detected: 'direct deposit' (+15 pts)
+2026-08-16 20:44:57,437 [DEBUG] PhishGuard: Risk calculation completed: Score=65, Level=RiskLevel.HIGH, IndicatorsCount=4
+2026-08-16 20:44:57,437 [DEBUG] PhishGuard: Risk calculation completed: Score=50, Level=RiskLevel.HIGH, IndicatorsCount=3
+2026-08-16 20:44:57,437 [WARNING] PhishGuard: Double extension masquerade detected: Invoice_July2026.pdf.exe
+2026-08-16 20:44:57,437 [DEBUG] PhishGuard: Risk calculation completed: Score=50, Level=RiskLevel.HIGH, IndicatorsCount=3
+2026-08-16 20:44:57,438 [DEBUG] PhishGuard: Risk calculation completed: Score=80, Level=RiskLevel.HIGH, IndicatorsCount=5
+2026-08-16 20:44:57,438 [DEBUG] PhishGuard: Risk calculation completed: Score=50, Level=RiskLevel.HIGH, IndicatorsCount=4
+2026-08-16 20:59:08,673 [INFO] PhishGuard: Launching PhishGuard GUI...
+2026-08-16 20:59:17,461 [DEBUG] PhishGuard: Keyword trigger detected: 'urgent' (+5 pts)
+2026-08-16 20:59:17,461 [DEBUG] PhishGuard: Keyword trigger detected: 'wire transfer' (+15 pts)
+2026-08-16 20:59:17,462 [DEBUG] PhishGuard: Keyword trigger detected: 'urgent' (+5 pts)
+2026-08-16 20:59:17,462 [DEBUG] PhishGuard: Keyword trigger detected: 'invoice attached' (+10 pts)
+2026-08-16 20:59:17,462 [DEBUG] PhishGuard: Keyword trigger detected: 'overdue payment' (+10 pts)
+2026-08-16 20:59:17,462 [DEBUG] PhishGuard: Keyword trigger detected: 'verify identity' (+10 pts)
+2026-08-16 20:59:17,463 [DEBUG] PhishGuard: Risk calculation completed: Score=65, Level=RiskLevel.HIGH, IndicatorsCount=4
+2026-08-16 20:59:17,464 [WARNING] PhishGuard: Double extension masquerade detected: Invoice_July2026.pdf.exe
+2026-08-16 20:59:17,464 [DEBUG] PhishGuard: Risk calculation completed: Score=80, Level=RiskLevel.HIGH, IndicatorsCount=5
+2026-08-16 20:59:17,464 [DEBUG] PhishGuard: Risk calculation completed: Score=50, Level=RiskLevel.HIGH, IndicatorsCount=4
+2026-08-16 20:59:36,786 [DEBUG] PhishGuard: Keyword trigger detected: 'urgent' (+5 pts)
+2026-08-16 20:59:36,790 [DEBUG] PhishGuard: Keyword trigger detected: 'account suspended' (+10 pts)
+2026-08-16 20:59:36,791 [INFO] PhishGuard: Link spoofing detected: Anchor=trusted-portal.com vs Href=10.0.0.45
+2026-08-16 20:59:36,791 [DEBUG] PhishGuard: Risk calculation completed: Score=0, Level=RiskLevel.LOW, IndicatorsCount=0
+2026-08-16 20:59:36,796 [DEBUG] PhishGuard: Risk calculation completed: Score=0, Level=RiskLevel.LOW, IndicatorsCount=0
+2026-08-16 20:59:36,797 [WARNING] PhishGuard: Double extension masquerade detected: Verification_Form.doc.exe
+2026-08-16 20:59:36,799 [DEBUG] PhishGuard: Risk calculation completed: Score=145, Level=RiskLevel.HIGH, IndicatorsCount=9
+2026-08-16 20:59:36,799 [DEBUG] PhishGuard: Risk calculation completed: Score=0, Level=RiskLevel.LOW, IndicatorsCount=0
+2026-08-16 20:59:36,803 [DEBUG] PhishGuard: Risk calculation completed: Score=0, Level=RiskLevel.LOW, IndicatorsCount=0
+2026-08-16 20:59:53,226 [INFO] PhishGuard: Sender is on whitelist. Skipping threat scoring and overriding risk to LOW.
+2026-08-16 20:59:53,227 [DEBUG] PhishGuard: Risk calculation completed: Score=0, Level=RiskLevel.LOW, IndicatorsCount=0
+2026-08-16 20:59:53,228 [DEBUG] PhishGuard: Risk calculation completed: Score=0, Level=RiskLevel.LOW, IndicatorsCount=0
+2026-08-16 20:59:53,229 [DEBUG] PhishGuard: Risk calculation completed: Score=0, Level=RiskLevel.LOW, IndicatorsCount=0
+2026-08-16 21:00:02,462 [INFO] PhishGuard: Sender is on whitelist. Skipping threat scoring and overriding risk to LOW.
+2026-08-16 21:00:02,463 [DEBUG] PhishGuard: Risk calculation completed: Score=0, Level=RiskLevel.LOW, IndicatorsCount=0

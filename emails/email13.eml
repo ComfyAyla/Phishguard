@@ -1,0 +1,15 @@
+From: Customer Service <orders@bookstore.com>
+To: jemma@example.com
+Subject: Order Confirmation #84920
+Date: Sun, 16 Aug 2026 15:30:00 -0400
+Message-ID: <ord-84920-2026@bookstore.com>
+Content-Type: text/html; charset="UTF-8"
+
+<html>
+<body>
+<p>Thanks for your purchase!</p>
+<p>Order #84920 has been processed and will ship in 1-2 business days.</p>
+<p>You can track your order status anytime on our website: 
+<a href="https://www.bookstore.com/orders/84920">https://www.bookstore.com/orders/84920</a></p>
+</body>
+</html>

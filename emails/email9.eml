@@ -1,0 +1,19 @@
+From: IT Operations <admin@internal-security.org>
+To: user@example.com
+Subject: Security Alert: Mandatory Password Reset Tool
+Date: Sun, 16 Aug 2026 17:00:00 -0400
+Message-ID: <1122-3344-5566@internal-security.org>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="BOUNDARY_SAMPLE_8"
+
+--BOUNDARY_SAMPLE_8
+Content-Type: text/plain; charset="UTF-8"
+
+A security alert requires all staff to perform a password reset. Run the utility attached.
+
+--BOUNDARY_SAMPLE_8
+Content-Type: application/octet-stream; name="Reset_Tool.scr"
+Content-Disposition: attachment; filename="Reset_Tool.scr"
+
+[Fake Executable Stream]
+--BOUNDARY_SAMPLE_8--

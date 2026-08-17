@@ -1,0 +1,19 @@
+From: Legal Council <notice@law-compliance.com>
+To: user@example.com
+Subject: Legal Action Notice: Immediate Action Required
+Date: Sun, 16 Aug 2026 18:30:00 -0400
+Message-ID: <9988-7766-5544@law-compliance.com>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="BOUNDARY_SAMPLE_9"
+
+--BOUNDARY_SAMPLE_9
+Content-Type: text/plain; charset="UTF-8"
+
+Immediate action required! You are named in a pending legal action. Review lawsuit documentation immediately.
+
+--BOUNDARY_SAMPLE_9
+Content-Type: application/x-rar-compressed; name="Legal_Summons.rar"
+Content-Disposition: attachment; filename="Legal_Summons.rar"
+
+[Fake RAR Payload Stream]
+--BOUNDARY_SAMPLE_9--

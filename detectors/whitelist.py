@@ -1,78 +1,38 @@
-<<<<<<< HEAD
 # whitelist.py
-# it reads whitelist.txt and checks against it if the sender is a trusted one listed there
-# it allows the scanner to skip detectors for trusted senders
-
 import os
 import re
 from typing import List
-from models import EmailMessage
+from models import EmailMessage, logger
 
 def load_whitelist() -> List[str]:
-    """Helper to read the local whitelist.txt dynamically."""
+    """Helper to read local whitelist.txt safely."""
     whitelist_path = "whitelist.txt"
     if not os.path.exists(whitelist_path):
         return []
-    with open(whitelist_path, "r", encoding="utf-8") as f:
-        return [line.strip().lower() for line in f if line.strip()]
+    try:
+        with open(whitelist_path, "r", encoding="utf-8") as f:
+            return [line.strip().lower() for line in f if line.strip()]
+    except (OSError, UnicodeDecodeError) as e:
+        logger.error(f"Error reading {whitelist_path}: {e}")
+        return []
 
 def is_sender_whitelisted(email: EmailMessage) -> bool:
-    """Checks if the sender's email or domain is on the local whitelist."""
+    """Checks if sender's exact email address or exact domain is whitelisted."""
     whitelist = load_whitelist()
-    if not whitelist:
+    if not whitelist or not email.sender:
         return False
         
-    sender_lower = email.sender.lower()
+    sender_lower = email.sender.lower().strip()
     
-    # Check if direct email address matches
-    for entry in whitelist:
-        if entry in sender_lower:
-            return True
+    # Check 1: Direct exact email address match
+    if sender_lower in whitelist:
+        return True
             
-    # Extract domain using regex
-    email_match = re.search(r'[\w\.-]+@([\w\.-]+\.\w+)', email.sender)
+    # Check 2: Extract domain and check exact domain match
+    email_match = re.search(r'[\w\.-]+@([\w\.-]+\.\w+)', sender_lower)
     if email_match:
         domain = email_match.group(1).lower()
         if domain in whitelist:
             return True
             
-=======
-# whitelist.py
-# it reads whitelist.txt and checks against it if the sender is a trusted one listed there
-# it allows the scanner to skip detectors for trusted senders
-
-import os
-import re
-from typing import List
-from models import EmailMessage
-
-def load_whitelist() -> List[str]:
-    """Helper to read the local whitelist.txt dynamically."""
-    whitelist_path = "whitelist.txt"
-    if not os.path.exists(whitelist_path):
-        return []
-    with open(whitelist_path, "r", encoding="utf-8") as f:
-        return [line.strip().lower() for line in f if line.strip()]
-
-def is_sender_whitelisted(email: EmailMessage) -> bool:
-    """Checks if the sender's email or domain is on the local whitelist."""
-    whitelist = load_whitelist()
-    if not whitelist:
-        return False
-        
-    sender_lower = email.sender.lower()
-    
-    # Check if direct email address matches
-    for entry in whitelist:
-        if entry in sender_lower:
-            return True
-            
-    # Extract domain using regex
-    email_match = re.search(r'[\w\.-]+@([\w\.-]+\.\w+)', email.sender)
-    if email_match:
-        domain = email_match.group(1).lower()
-        if domain in whitelist:
-            return True
-            
->>>>>>> 8bd1d38f5802b1da35f04e239778b5b0b3f0ece0
     return False
