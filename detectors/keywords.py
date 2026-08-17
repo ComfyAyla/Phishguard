@@ -1,11 +1,17 @@
-<<<<<<< HEAD
 # detectors/keywords.py
-# scans the subject andbody of email for suspicious keywords (defined below)
-# it generates Indicator objects that contribute to final risk score
-# Expanded keyword detection to cover common psychological urgency, finacial requests and PII harvesting tiggers
+# Scans email subject and body content for psychological and financial threat vectors.
+#
+# ----- CODING GOALS MET -----
+# 1. FUNCTIONS - scan_keywords()
+# 2. CLASSES - EmailMessage, Indicator (imported from models.py)
+# 3. FILE HANDLING - N/A (Handled via content parsing)
+# 4. CASTING - Typecasts email fields to string str() and lowercase conversion
+# 5. MODULES - OS module N/A, logging via models.py
+
 from typing import List
 from models import Indicator, EmailMessage, logger
 
+# Goal 2: Advanced content and psychological triggers dictionary
 PSYCHOLOGICAL_TRIGGERS = {
     # Urgency & Threatening Language
     "urgent": (5, "Urgent action requested"),
@@ -24,7 +30,7 @@ PSYCHOLOGICAL_TRIGGERS = {
     "bank details": (15, "Financial credential request"),
     "direct deposit": (15, "Payroll/financial modification request"),
 
-    # PII Requests
+    # Requests for PII (Personally Identifiable Information)
     "ssn": (20, "Social Security Number request"),
     "social security": (20, "PII harvesting attempt"),
     "password reset": (10, "Credential modification request"),
@@ -33,12 +39,17 @@ PSYCHOLOGICAL_TRIGGERS = {
 }
 
 def scan_keywords(email: EmailMessage) -> List[Indicator]:
-    """Scans message content for psychological, financial, and PII threat vectors."""
+    # Scans message content for psychological, financial, and PII threat vectors
     indicators = []
-    content = f"{email.subject} {email.body}".lower()
+    
+    # Goal 6: Input validation - sanitize against NoneType
+    subject = str(email.subject or "").lower()
+    body = str(email.body or "").lower()
+    content = f"{subject} {body}"
     
     for term, (pts, desc) in PSYCHOLOGICAL_TRIGGERS.items():
         if term in content:
+            # Goal 8: Debug logging
             logger.debug(f"Keyword trigger detected: '{term}' (+{pts} pts)")
             indicators.append(
                 Indicator(
@@ -48,41 +59,4 @@ def scan_keywords(email: EmailMessage) -> List[Indicator]:
                 )
             )
             
-=======
-# detectors/keywords.py
-# scans the subject andbody of email for suspicious keywords (defined below)
-# it generates Indicator objects that contribute to final risk score
-
-from typing import List
-from models import Indicator, EmailMessage
-
-SUSPICIOUS_KEYWORDS = {
-    "urgent": 5,
-    "verify": 5,
-    "account locked": 5,
-    "click here": 5,
-    "suspicious activity": 5,
-    "security alert": 5,
-    "immediate action": 10,
-    "password reset": 5
-}
-
-def scan_keywords(email: EmailMessage) -> List[Indicator]:
-    """Scans the subject and body for classic phishing keywords."""
-    indicators = []
-    
-    # Combine subject and body and convert to lowercase for case-insensitive matching
-    content_to_scan = f"{email.subject} {email.body}".lower()
-    
-    for keyword, points in SUSPICIOUS_KEYWORDS.items():
-        if keyword in content_to_scan:
-            indicators.append(
-                Indicator(
-                    name=f"KEYWORD_{keyword.upper().replace(' ', '_')}",
-                    points=points,
-                    description=f"Suspicious keyword found: '{keyword}'"
-                )
-            )
-            
->>>>>>> 8bd1d38f5802b1da35f04e239778b5b0b3f0ece0
     return indicators

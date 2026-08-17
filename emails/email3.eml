@@ -1,0 +1,19 @@
+From: Finance Manager <exec@corporate-finance.xyz>
+To: user@example.com
+Subject: Urgent Wire Transfer Instructions
+Date: Sun, 16 Aug 2026 12:30:00 -0400
+Message-ID: <7777-8888-9999@corporate-finance.xyz>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="BOUNDARY_SAMPLE_3"
+
+--BOUNDARY_SAMPLE_3
+Content-Type: text/plain; charset="UTF-8"
+
+We have an urgent wire transfer request for an emergency vendor payment. Details are in the archive.
+
+--BOUNDARY_SAMPLE_3
+Content-Type: application/zip; name="Payment_Instructions.zip"
+Content-Disposition: attachment; filename="Payment_Instructions.zip"
+
+[Fake Zip Payload Stream]
+--BOUNDARY_SAMPLE_3--

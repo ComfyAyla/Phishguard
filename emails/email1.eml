@@ -1,0 +1,14 @@
+From: Security Team <no-reply@secure-login-portal.com>
+To: user@example.com
+Subject: Security Alert: Account Locked
+Date: Sun, 16 Aug 2026 10:00:00 -0400
+Message-ID: <1111-2222-3333@secure-login-portal.com>
+Content-Type: text/html; charset="UTF-8"
+
+<html>
+<body>
+<p>Immediate action required! Your account locked due to unauthorized login attempts.</p>
+<p>Please click here to verify your credentials: 
+<a href="http://login-phish-domain.com/verify">http://paypal.com/login</a></p>
+</body>
+</html>

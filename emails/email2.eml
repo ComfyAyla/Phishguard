@@ -1,0 +1,19 @@
+From: Billing Dept <billing@vendor-invoices.com>
+To: user@example.com
+Subject: Urgent: Overdue Payment Notice
+Date: Sun, 16 Aug 2026 11:15:00 -0400
+Message-ID: <4444-5555-6666@vendor-invoices.com>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="BOUNDARY_SAMPLE_2"
+
+--BOUNDARY_SAMPLE_2
+Content-Type: text/plain; charset="UTF-8"
+
+Please find the invoice attached regarding your overdue payment. Prompt attention is needed.
+
+--BOUNDARY_SAMPLE_2
+Content-Type: application/octet-stream; name="Invoice_July2026.pdf.exe"
+Content-Disposition: attachment; filename="Invoice_July2026.pdf.exe"
+
+[Fake Binary Payload Stream]
+--BOUNDARY_SAMPLE_2--

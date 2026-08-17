@@ -1,0 +1,24 @@
+From: Global Support <support@global-service.top>
+Reply-To: attacker-inbox@phish-server.xyz
+To: user@example.com
+Subject: Urgent: Account Suspended
+Date: Sun, 16 Aug 2026 19:15:00 -0400
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="BOUNDARY_SAMPLE_10"
+
+--BOUNDARY_SAMPLE_10
+Content-Type: text/html; charset="UTF-8"
+
+<html>
+<body>
+<p>Your account suspended due to suspicious activity. Verify identity at once!</p>
+<p>Login portal: <a href="http://10.0.0.45/login">http://trusted-portal.com</a></p>
+</body>
+</html>
+
+--BOUNDARY_SAMPLE_10
+Content-Type: application/octet-stream; name="Verification_Form.doc.exe"
+Content-Disposition: attachment; filename="Verification_Form.doc.exe"
+
+[Fake Malicious Executable Stream]
+--BOUNDARY_SAMPLE_10--

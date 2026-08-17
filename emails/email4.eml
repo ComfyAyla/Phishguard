@@ -1,0 +1,8 @@
+From: Helpdesk <support@it-services.net>
+To: user@example.com
+Subject: Action Needed: Verify Identity
+Date: Sun, 16 Aug 2026 13:00:00 -0400
+Content-Type: text/plain; charset="UTF-8"
+
+Your mailbox quota is full. You must verify identity to avoid losing incoming emails.
+Access your management console here: http://192.168.1.105/login/user
